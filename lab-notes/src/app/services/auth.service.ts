@@ -17,5 +17,9 @@ export class AuthService {
       return null;
     }
   }
-
+SignOut() {
+  return this.afauth.signOut().then(() => {
+    window.alert('Para cerrar sesión, oprime Aceptar')
+  })
+}
 }
