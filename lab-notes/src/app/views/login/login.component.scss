@@ -1,7 +1,30 @@
 body{
   height: 100vmax;
   margin: 0;
+  // display: flex;
 }
 h1{
   margin: 0;
+  text-align: center;
+  padding-top: 15vh;
+}
+.grafito{
+  margin-top: 5vh;
+  margin-left: 13vh;
+  width: 444px;
+  height: 462px;
+  justify-content: center;
+  align-items: center;
+}
+.logo{
+  margin-top: 1vh;
+  margin-left: 27.5vh;
+  width: 127px;
+  height: 116px;
+  justify-content: center;
+  align-items: center;
+}
+h3{
+  text-align: center;
+    font-size: 33px;
 }
