@@ -9,21 +9,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  user = {
-    email: '',
-    password: ''
-  }
   constructor(private authService: AuthService, private route: Router) { }
   ngOnInit(): void {
   }
 lWithGoogle(){
-  const { email, password } = this.user;
-  this.authService.loginWithGoogle(email,password).then(res => {
-    this.changeView();
-  })
+  this.authService.loginWithGoogle().then(res=> {
+    console.log(res);
+    // if(res){
+    this.route.navigate(['home'])
+    // }
+   })
 }
-changeView(){
-  this.route.navigate(['home'])
-}
-
 }

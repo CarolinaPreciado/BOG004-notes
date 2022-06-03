@@ -13,9 +13,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  logout(){
+  logout1(){
     this.authService
-    .SignOut()
-     .then(() => this.router.navigate(['']))
+    .logout()
+     .then(() => {
+      window.alert('Para cerrar sesión, oprime Aceptar');
+     this.router.navigate([''])
+     })
   }
 }
