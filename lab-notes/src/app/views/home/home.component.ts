@@ -21,4 +21,8 @@ export class HomeComponent implements OnInit {
      this.router.navigate([''])
      })
   }
+  //Funcion para cambiar a la vista de crear una nueva nota
+  newNote(){
+    this.router.navigate(['newNotes'])
+  }
 }
