@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "lab-notes--grafito"
+  },
+  "targets": {
+    "lab-notes--grafito": {
+      "hosting": {
+        "lab-notes": [
+          "lab-notes--grafito"
+        ]
+      }
+    }
+  }
+}
