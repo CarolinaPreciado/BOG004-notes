@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private route: Router) { }
+  constructor(public authService: AuthService, private route: Router) { }
   ngOnInit(): void {
   }
 lWithGoogle(){

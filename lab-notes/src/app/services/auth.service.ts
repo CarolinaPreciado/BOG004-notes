@@ -12,13 +12,9 @@ export class AuthService {
   loginWithGoogle() {
    return this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
+  // Funcion para cerrar seción
   logout(){
     return this.auth.signOut();
   }
 
-// SignOut() {
-//   return this.afauth.signOut().then(() => {
-//     window.alert('Para cerrar sesión, oprime Aceptar')
-//   })
-// }
 }
