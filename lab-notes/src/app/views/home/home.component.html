@@ -1,5 +1,18 @@
-<img class="logout" src="../../../assets/img/Component 1.png" alt="cerrar-sesión" (click)="logout1()">
+<img class="logout" src="../../../assets/img/Component 1.png" alt="cerrar-sesión" (click)="signOut()">
 
-<h2>¡Aquí veras tus notas!</h2>
+<h2>Grafito</h2>
+
+<div class="row">
+  <div class="col s4 m6" *ngFor="let unitNote of listNotes">
+    <div class="hoverable">
+      <div class="card brown lighten-5">
+        <div class="card-content black-text">
+          <h2 class="title">{{unitNote.title}}</h2>
+          <h5>{{unitNote.note}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <img class="newNoteButton" src="../../../assets/img/mas.png" alt="agregar-nueva-nota" (click)="newNote()">
