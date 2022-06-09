@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Note from 'src/app/interface/notes.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { SendInformationService } from 'src/app/services/send-information.service';
@@ -35,5 +36,9 @@ export class HomeComponent implements OnInit {
   //Funcion para cambiar a la vista de crear una nueva nota
   newNote(){
     this.router.navigate(['newNotes'])
+  }
+  async onClickDelete(note:Note){
+    const response = await this.firestoreService.deleteNotes(note);
+    console.log(response);
   }
 }
