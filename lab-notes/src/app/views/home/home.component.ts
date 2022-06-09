@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['newNotes'])
   }
   async onClickDelete(note:Note){
+    window.alert('¿Estás seguro de borrar la nota?')
     const response = await this.firestoreService.deleteNotes(note);
     console.log(response);
   }
