@@ -32,11 +32,13 @@ export class NewNotesComponent implements OnInit {
   async onSubmit(){
  const response = await this.firestoreService.addNote(this.formNotes.value);
   }
+  //funcion para guardar las notas - evento click del new notes component
   saveNote(){
     this.onSubmit();
     this.formNotes.reset();
     this.router.navigate(['home']);
   }
+  //Obtener nuevas notas
   getNewNotes(){
     this.firestoreService.getNotes().subscribe(notes => {
       this.showNotes = notes;

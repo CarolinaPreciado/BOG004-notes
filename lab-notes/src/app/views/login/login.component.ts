@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService, private route: Router) { }
   ngOnInit(): void {
   }
+  //Funcion para iniciar sesion con el evento click (se resuelve la promesa de la funcion creada en el authService)
 lWithGoogle(){
   this.authService.loginWithGoogle().then(res=> {
     console.log(res);

@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  //Función para cerrar sesión
+  //Función para cerrar sesión con el evento click
   signOut(){
     this.authService
     .logout()
@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   newNote(){
     this.router.navigate(['newNotes'])
   }
+  //Funcion para eliminar una nota
   async onClickDelete(note:Note){
     window.alert('¿Estás seguro de borrar la nota?')
     const response = await this.firestoreService.deleteNotes(note);
