@@ -17,6 +17,7 @@ export class FirestoreService {
     const noteCollection = collection(this.firestore, 'notes');
     return collectionData(noteCollection, {idField: 'id'}) as Observable<Note[]>;
   }
+//funcion para eliminar una nota - se resuelve en el home component
   deleteNotes(note:Note) {
     const noteDocCollection = doc(this.firestore, `notes/${note.id}`);
     return deleteDoc(noteDocCollection);
