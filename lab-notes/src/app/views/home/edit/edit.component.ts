@@ -24,7 +24,7 @@ export class EditComponent implements OnInit {
     private firestoreService: FirestoreService
   ) {
     console.log(this.title, 'titulo****');
-    console.log(this.note);
+    console.log(this.note, 'nota*****');
     this.formNotes = this.formBuilder.group({
       title: this.title,
       note: this.note,

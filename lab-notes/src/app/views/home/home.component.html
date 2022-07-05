@@ -15,7 +15,7 @@
         <i class="material-icons" (click)="onClickDelete(unitNote)">delete</i>
       </div>
     </div>
-    <app-edit [title]="editNoteId" *ngIf="editNoteId==unitNote.id"></app-edit>
+    <app-edit [title]="editNoteId" [note]="editNoteId" *ngIf="editNoteId==unitNote.id"></app-edit>
 
   </div>
 </div>

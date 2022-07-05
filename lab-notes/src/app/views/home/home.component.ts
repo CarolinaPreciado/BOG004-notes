@@ -50,7 +50,8 @@ export class HomeComponent implements OnInit {
   //Funcion para el boton de editar
   onClickEdit(note: Note) {
     this.editNoteId = note.id;
-    // console.log(note, 'Soy el console de Note')
+    // console.log(this.editNoteId);
+    // console.log(note, 'Soy el console de Note');
     // this.sendInformationService.dispatchSendNote.emit({
     //   id: note.id,
     //   title: note.title,
