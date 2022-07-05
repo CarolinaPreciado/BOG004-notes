@@ -1,8 +1,8 @@
 <div [formGroup]="formNotes">
 
-  <i class="large material-icons" (click)="returnView()">chevron_left</i>
-  <input id="tittle" formControlName="title" type="text" placeholder="Título:" [(ngModel)]="selectNote">
-  <textarea id="note" formControlName="note" placeholder="Nota:" [(ngModel)]="selectNote"></textarea>
+  <!-- <i class="large material-icons" (click)="returnView()">chevron_left</i> -->
+  <input id="title" formControlName="title" type="text" placeholder="Título:">
+  <textarea id="note" formControlName="note" placeholder="Nota:"></textarea>
 </div>
 <button class="btn waves-effect orange lighten-4" type="submit" name="action" (click)="editNote()">Editar
   <i class="material-icons right">send</i>

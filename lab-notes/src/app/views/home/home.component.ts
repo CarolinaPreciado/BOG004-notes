@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Note from 'src/app/interface/notes.interface';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,6 +12,7 @@ import { SendInformationService } from 'src/app/services/send-information.servic
 })
 export class HomeComponent implements OnInit {
   listNotes: any;
+  editNoteId: any;
 
   constructor(
     private authService: AuthService,
@@ -48,12 +49,13 @@ export class HomeComponent implements OnInit {
   }
   //Funcion para el boton de editar
   onClickEdit(note: Note) {
+    this.editNoteId = note.id;
     // console.log(note, 'Soy el console de Note')
-    this.sendInformationService.dispatchSendNote.emit({
-      id: note.id,
-      title: note.title,
-      note: note.note,
-    });
-    this.router.navigate(['editNotes']);
+    // this.sendInformationService.dispatchSendNote.emit({
+    //   id: note.id,
+    //   title: note.title,
+    //   note: note.note,
+    // });
+    // this.router.navigate(['editNotes']);
   }
 }

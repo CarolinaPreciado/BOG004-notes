@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/services/firestore.service';
@@ -11,23 +11,37 @@ import { take } from 'rxjs';
   styleUrls: ['./edit.component.scss'],
 })
 export class EditComponent implements OnInit {
+  @Input() title: string = '';
+  @Input() note: string = '';
   public formNotes: FormGroup;
   selectNote: any;
   allN: any;
+
   constructor(
     private router: Router,
     public formBuilder: FormBuilder,
     private sendInformation: SendInformationService,
     private firestoreService: FirestoreService
   ) {
+    console.log(this.title, 'titulo****');
+    console.log(this.note);
     this.formNotes = this.formBuilder.group({
-      title: [''],
-      note: [''],
+      title: this.title,
+      note: this.note,
     });
+    // this.sendInformation.dispatchSendNote.subscribe((data) => {
+    //   this.selectNote = data;
+    //   console.log(data, '**************');
+    //   this.formNotes.setValue({
+    //     title: data.title,
+    //     note: data.note,
+    //   });
+    // console.log(this.selectNote, 'SELECTNOTE**************');
+    // });
   }
   ngOnInit(): void {
-    this.allNotes();
-    this.getNoteForEdit();
+    // this.allNotes();
+    // this.getNoteForEdit();
     // console.log(this.getNoteForEdit(), 'Esta es la funcion de getNoteForEdit');
   }
   returnView() {
@@ -37,17 +51,7 @@ export class EditComponent implements OnInit {
     // TODO guardar info nueva en firebase
     this.router.navigate(['home']);
   }
-  getNoteForEdit() {
-    this.sendInformation.dispatchSendNote.subscribe((data) => {
-      console.log(data, '**************');
-      this.selectNote = data.title;
-      this.formNotes.setValue({
-        title: data.title,
-        note: data.note,
-      });
-      // console.log(this.selectNote, 'SELECTNOTE**************');
-    });
-  }
+  getNoteForEdit() {}
   allNotes() {
     this.firestoreService
       .getNotes()
