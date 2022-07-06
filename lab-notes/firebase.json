@@ -4,6 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "target": "lab-notes",
     "public": "./dist/lab-notes",
     "ignore": [
       "firebase.json",

@@ -1,0 +1,9 @@
+<div [formGroup]="formNotes">
+
+  <!-- <i class="large material-icons" (click)="returnView()">chevron_left</i> -->
+  <input id="title" formControlName="title" type="text" placeholder="Título:">
+  <textarea id="note" formControlName="note" placeholder="Nota:"></textarea>
+</div>
+<button class="btn waves-effect orange lighten-4" type="submit" name="action" (click)="editNoteEvent()">Editar
+  <i class="material-icons right">send</i>
+</button>

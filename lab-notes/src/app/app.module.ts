@@ -8,12 +8,12 @@ import { HomeComponent } from './views/home/home.component';
 import { NewNotesComponent } from './views/new-notes/new-notes.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './views/home/edit/edit.component';
 
 // import { AngularFireModule } from '@angular/fire';
-
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyCiQfbLDkCZtbPSixu_gVQ-P5v09r9wi1A",
@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     NewNotesComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +42,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
