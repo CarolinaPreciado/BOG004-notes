@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { SendInformationService } from 'src/app/services/send-information.service';
 import { take } from 'rxjs';
+import Note from 'src/app/interface/notes.interface';
 
 @Component({
   selector: 'app-edit',
@@ -13,7 +14,8 @@ import { take } from 'rxjs';
 export class EditComponent implements OnInit {
   @Input() title: string = '';
   @Input() note: string = '';
-  public formNotes: FormGroup;
+  @Output() editEvent = new EventEmitter<Note>();
+  public formNotes!: FormGroup;
   selectNote: any;
   allN: any;
 
@@ -25,10 +27,7 @@ export class EditComponent implements OnInit {
   ) {
     console.log(this.title, 'titulo****');
     console.log(this.note, 'nota*****');
-    this.formNotes = this.formBuilder.group({
-      title: this.title,
-      note: this.note,
-    });
+
     // this.sendInformation.dispatchSendNote.subscribe((data) => {
     //   this.selectNote = data;
     //   console.log(data, '**************');
@@ -40,16 +39,27 @@ export class EditComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
+    this.formNotes = this.formBuilder.group({
+      title: this.title,
+      note: this.note,
+    });
     // this.allNotes();
     // this.getNoteForEdit();
     // console.log(this.getNoteForEdit(), 'Esta es la funcion de getNoteForEdit');
+  }
+  editNoteEvent() {
+    const note = {
+      title: this.formNotes.get('title')?.value,
+      note: this.formNotes.get('note')?.value,
+    };
+    this.editEvent.emit(note);
   }
   returnView() {
     this.router.navigate(['home']);
   }
   editNote() {
     // TODO guardar info nueva en firebase
-    this.router.navigate(['home']);
+    // this.router.navigate(['home']);
   }
   getNoteForEdit() {}
   allNotes() {

@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.editNoteId);
     this.getInformation();
   }
   getInformation() {
@@ -58,5 +59,11 @@ export class HomeComponent implements OnInit {
     //   note: note.note,
     // });
     // this.router.navigate(['editNotes']);
+  }
+  async editNoteReceiver(note: Note) {
+    note.id = this.editNoteId;
+    await this.firestoreService.deleteNotes(note);
+    await this.firestoreService.addNote(note);
+    this.editNoteId = undefined;
   }
 }
