@@ -33,8 +33,11 @@ export class HomeComponent implements OnInit {
 
   //Función para cerrar sesión con el evento click
   signOut() {
+    const result = confirm('Para cerrar sesión, oprime Aceptar');
+    if (!result) {
+      return;
+    }
     this.authService.logout().then(() => {
-      window.alert('Para cerrar sesión, oprime Aceptar');
       this.router.navigate(['']);
     });
   }
@@ -44,7 +47,10 @@ export class HomeComponent implements OnInit {
   }
   //Funcion para eliminar una nota
   async onClickDelete(note: Note) {
-    window.alert('¿Estás seguro de borrar la nota?');
+    const result = confirm('¿Estás seguro de borrar la nota?');
+    if (!result) {
+      return;
+    }
     const response = await this.firestoreService.deleteNotes(note);
     console.log(response);
   }
